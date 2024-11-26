@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.6
   health: ^11.1.0
+  permission_handler: ^11.3.1
   pine: ^1.0.3
   provider: ^6.1.2
 

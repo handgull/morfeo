@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:morfeo/services/sleep_service.dart';
 import 'package:morfeo/widgets/main_app_bar.dart';
 
 class TimerPage extends StatefulWidget {
@@ -12,6 +13,12 @@ class TimerPage extends StatefulWidget {
 class _TimerPageState extends State<TimerPage> {
   static const defaultDuration = 10;
   bool waitForLightSleep = true;
+
+  @override
+  void initState() {
+    super.initState();
+    SleepServiceImpl().init();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +85,9 @@ class _TimerPageState extends State<TimerPage> {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  SleepServiceImpl().read();
+                },
                 child: Text(
                   'START!',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
